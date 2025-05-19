@@ -13,7 +13,10 @@ function App() {
     };
     setItems([...items, newItem]);
   };
-  const removeItem = (itemId) => {};
+  const removeItem = (itemId) => {
+    const newItems = items.filter((item) => item.id !== itemId);
+    setItems(newItems);
+  };
   return (
     <section className="section-center">
       <Form addItem={addItem} />

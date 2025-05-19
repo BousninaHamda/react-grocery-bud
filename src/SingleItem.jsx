@@ -1,18 +1,11 @@
-import { useState } from "react";
-
-const SingleItem = ({ id, name, completed, removeItem }) => {
-  const [isChecked, setIsChecked] = useState(completed);
+const SingleItem = ({ id, name, completed, removeItem, editItem }) => {
   return (
     <div className="single-item">
-      <input
-        type="checkbox"
-        value={isChecked}
-        onChange={() => setIsChecked(!isChecked)}
-      />
+      <input type="checkbox" value={completed} onChange={() => editItem(id)} />
       <p
         style={{
           textTransform: "capitalize",
-          textDecoration: isChecked && "line-through",
+          textDecoration: completed && "line-through",
         }}
       >
         {name}
